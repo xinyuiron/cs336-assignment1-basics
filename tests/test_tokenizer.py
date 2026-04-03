@@ -12,6 +12,8 @@ import tiktoken
 from .adapters import get_tokenizer
 from .common import FIXTURES_PATH, gpt2_bytes_to_unicode
 
+import pdb
+
 VOCAB_PATH = FIXTURES_PATH / "gpt2_vocab.json"
 MERGES_PATH = FIXTURES_PATH / "gpt2_merges.txt"
 
@@ -122,7 +124,6 @@ def test_single_character_matches_tiktoken():
         merges_path=MERGES_PATH,
     )
     test_string = "s"
-
     reference_ids = reference_tokenizer.encode(test_string)
     ids = tokenizer.encode(test_string)
     assert ids == reference_ids
